@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <title>Expo Management System</title>
+</head>
+
+<body>
+    <!-- Container para limitar el ancho y centrar el bloquecillo -->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><b>Expo Management System</b></li>
+            </ul>
+            <ul>
+                <li><a href="#">Integrantes</a></li>
+                <li><a href="#">Tareas</a></li>
+                <li><a href="#">Mi Perfil</a></li>
+                <li><a href="#" role="button">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h2>Integrantes del equipo</h2>
+        <table id="tabla" class="overflow-auto striped">
+            <thead>
+                <tr><!-- tr es una fila. TableRow -->
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo Electrónico</th>
+                    <th>Acciones</th><!-- Para botones de eliminar/actualizar -->
+                    <!-- Y eso es... Asombroso. Increíble incluso -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí van los registros. Información que viene del JSON 😀 -->
+            </tbody>
+        </table>
+    </main>
+    <!-- Enlace al archivo de JavaScript :) -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
