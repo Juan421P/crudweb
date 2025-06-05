@@ -36,3 +36,32 @@ ObtenerRegistros();
 const btnAgregar = document.querySelector("#btnAgregar");
 const modal = document.querySelector("#mdAgregar");
 const btnCerrar = document.querySelector("#btnCerrarModal");
+btnAgregar.addEventListener("click", ()=>{
+    modal.showModal();
+});
+btnCerrar.addEventListener("click", ()=>{
+    modal.close();
+});
+document.querySelector("#frmAgregar").addEventListener("submit", async e =>{
+    e.preventDefault(); // Evita que los datos se envíen por defecto. Omaigad!!!
+    const nombre = document.querySelector("#txtNombre").value.trim();
+    const apellido = document.querySelector("#txtApellido").value.trim();
+    const correo = document.querySelector("#txtCorreo").value.trim();
+    if(!nombre || !apellido || !correo){
+        return;
+    }
+    const respuesta = await fetch(API_URL, {
+        method: "POST",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({nombre, apellido, correo})
+    });
+    if(respuesta.ok){
+        // Mensaje de confirmación!!
+        alert("El registro fue agregado correctamente");
+        // Limpiar el formulario
+        document.querySelector("#frmAgregar").reset();
+        // Cerrar el formulario
+        modal.close();
+        ObtenerRegistros();
+    }
+});
