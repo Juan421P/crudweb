@@ -8,7 +8,6 @@ async function ObtenerRegistros(){
     const data = await respuesta.json(); // J, tú ve a la izquierda, S, tú a la derecha, O, tú por el medio, y N, tú solo sé tú... Vamos equipo JSON!!!
     MostrarRegistros(data);
 }
-
 // Función para generar las filas de la tabla
 // "datos" representa al JSON
 function MostrarRegistros(datos){
@@ -32,3 +31,8 @@ function MostrarRegistros(datos){
     });
 }
 ObtenerRegistros();
+
+// PROCESO PARA AGREGAR REGISTROS!!!!!
+const btnAgregar = document.querySelector("#btnAgregar");
+const modal = document.querySelector("#mdAgregar");
+const btnCerrar = document.querySelector("#btnCerrarModal");
