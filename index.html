@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <title>Expo Management System</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -18,29 +19,33 @@
             <ul>
                 <li><a href="#">Integrantes</a></li>
                 <li><a href="#">Tareas</a></li>
-                <li><a href="#">Mi Perfil</a></li>
                 <li><a href="#" role="button">Cerrar Sesión</a></li>
             </ul>
         </nav>
     </header>
     <main class="container">
         <h2>Integrantes del equipo</h2>
-        <table id="tabla" class="overflow-auto striped">
-            <thead>
-                <tr><!-- tr es una fila. TableRow -->
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Correo Electrónico</th>
-                    <th>Acciones</th><!-- Para botones de eliminar/actualizar -->
-                    <!-- Y eso es... Asombroso. Increíble incluso -->
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Aquí van los registros. Información que viene del JSON 😀 -->
-            </tbody>
-        </table>
+        <div class="tabla-scroll">
+            <table id="tabla" class="overflow-auto striped">
+                <thead>
+                    <tr><!-- tr es una fila. TableRow -->
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo Electrónico</th>
+                        <th>Acciones</th><!-- Para botones de eliminar/actualizar -->
+                        <!-- Y eso es... Asombroso. Increíble incluso -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí van los registros. Información que viene del JSON 😀 -->
+                </tbody>
+            </table>
+        </div>
     </main>
+    <button class="add-button" id="btnAgregar" title="Agregar gente">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smile-plus-icon lucide-smile-plus"><path d="M22 11v1a10 10 0 1 1-9-10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/><path d="M16 5h6"/><path d="M19 2v6"/></svg>
+    </button>
     <!-- Enlace al archivo de JavaScript :) -->
     <script src="js/script.js"></script>
 </body>

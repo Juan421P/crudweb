@@ -1,0 +1,23 @@
+.add-button{
+    position: fixed; /* El botón, por decirlo así, queda flotando sobre el contenido así bien peluche */
+    bottom: 30px; /* Espacio entre el borde inferior y el cosito */
+    right: 30px; /* Espacio entre emm el borde derecho y el cosito */
+    background-color: greenyellow; /* Colorcito verde bonito */
+    color: #2b2b2b; /* Color para generar contraste con el verde amarillento */
+    border-radius: 50%; /* Para que salga redondeado */
+    border: none; /* Para que no tenga el borde ese todo feo */
+    width: 70px; /* Width fijo para que no se vea feo */
+    height: 70px; /* Height fijo para que no se vea feo igual*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Sombra difuminada del botón */
+    display: flex; /* Activación de flex */
+    justify-content: center; /* Alineación en el eje principal */
+    align-items: center; /* Alineación en el eje secundario */
+    z-index: 1001; /* Para que el botón siempre quede sobre las demas cosillas */
+    transition: transform 0.3s; /* Duración del efecto */
+}
+.add-button:hover{
+    transform: scale(1.1);
+}
+.tabla-scroll{
+    overflow-x: auto;
+}
