@@ -24,7 +24,7 @@ function MostrarRegistros(datos){
                 <td>${ser.correo}</td>
                 <td>
                     <button>Editar</button>
-                    <button>Eliminar</button>
+                    <button onclick="EliminarPersona(${ser.id})">Eliminar</button>
                 </td>
             </tr>
         `;
@@ -63,5 +63,19 @@ document.querySelector("#frmAgregar").addEventListener("submit", async e =>{
         // Cerrar el formulario
         modal.close();
         ObtenerRegistros();
+    }else{
+        alert("No se pudo guardar ey");
     }
 });
+
+// PROCESO PARA BORRAR REGISTROS!!!!
+async function EliminarPersona(id){
+    const confirmacion = confirm("¿Seguro que desea eliminar el registro?");
+    if(confirmacion){
+        await fetch(`${API_URL}/${id}`,{
+            method: "DELETE"
+            }); // Llamamos al endpoint
+            // Recargar la tabla
+            ObtenerRegistros();
+    }
+}
