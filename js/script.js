@@ -23,7 +23,7 @@ function MostrarRegistros(datos){
                 <td>${ser.apellido}</td>
                 <td>${ser.correo}</td>
                 <td>
-                    <button>Editar</button>
+                    <button onclick="AbrirModalEditar(${ser.id}, '${ser.nombre}', '${ser.apellido}', '${ser.correo}')">Editar</button>
                     <button onclick="EliminarPersona(${ser.id})">Eliminar</button>
                 </td>
             </tr>
@@ -79,3 +79,41 @@ async function EliminarPersona(id){
             ObtenerRegistros();
     }
 }
+
+// ACTUALIZACIÓN!!!
+// Funcionalidad para actualizar
+const modalEditar = document.querySelector("#mdActualizar");
+const btnCerrarEditar = document.querySelector("#btnCerrarActualizar");
+btnCerrarEditar.addEventListener("click", ()=>{
+    modalEditar.close();
+});
+function AbrirModalEditar(id, nombre, apellido, correo){
+    document.querySelector("#txtIdActualizar").value = id;
+    document.querySelector("#txtNombreActualizar").value = nombre;
+    document.querySelector("#txtApellidoActualizar").value = apellido;
+    document.querySelector("#txtCorreoActualizar").value = correo;
+    modalEditar.showModal();
+}
+document.querySelector("#frmActualizar").addEventListener("submit", async e =>{
+    e.preventDefault();
+    const id = document.querySelector("#txtIdActualizar").value;
+    const nombre = document.querySelector("#txtNombreActualizar").value.trim();
+    const apellido = document.querySelector("#txtApellidoActualizar").value.trim();
+    const correo = document.querySelector("#txtCorreoActualizar").value.trim();
+    if(!id || !nombre || !apellido || !correo){
+        alert("Complete todos los campos porfi");
+        return;
+    }
+    const respuesta = await fetch(`${API_URL}/${id}`, {
+        method: "PUT",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({correo, nombre, apellido})
+    });
+    if(respuesta.ok){
+        alert("Registro actualizado de manera exitosa yupi");
+        modalEditar.close();
+        ObtenerRegistros();
+    }else{
+        alert("Hubo un error al actualizar. Awwwww :(");
+    }
+});
